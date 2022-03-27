@@ -38,12 +38,15 @@
         >
             <div class="p-8 m-auto bg-pink-900 shadow-2xl rounded-xl">
                 <p class="text-5xl font-extrabold text-center text-white">Let's do it!</p>
-                <form class="flex flex-col items-center p-24">
+                <form class="flex flex-col items-center p-24"
+                    wire:submit.prevent="subscribe"
+                >
                     <x-input 
                         class="px-5 py-3 border border-blue-400 w-80"
                         type="email"
                         name="email"
                         placeholder="Email Address"
+                        wire:model="email"
                     ></x-input>
                     <span class="text-xs text-gray-100">
                         We will send you a confirmation email.

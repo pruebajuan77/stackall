@@ -2,14 +2,20 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Subscriber;
 use Livewire\Component;
 
 class LandingPage extends Component
 {
-    public $email;
+    public $email = 'email@email.com';
 
-    public function subscribe() {
-        \Log::debug($this->email);
+    public function subscribe() 
+    {
+        $subscriber = Subscriber::create([
+            'email' => $this->email,
+        ]);
+        
+        $this->reset('email');
     }
 
     public function render()

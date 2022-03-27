@@ -9,8 +9,14 @@ class LandingPage extends Component
 {
     public $email = 'email@email.com';
 
+    protected $rules = [
+        'email' => 'required|email:filter|unique:subscribers,email'
+    ];
+
     public function subscribe() 
     {
+        $this->validate();
+        
         $subscriber = Subscriber::create([
             'email' => $this->email,
         ]);

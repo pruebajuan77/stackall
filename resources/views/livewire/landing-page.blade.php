@@ -1,6 +1,9 @@
 <div 
     class="flex flex-col h-screen bg-indigo-900"
-    x-data="{ showSubscribe: false }"
+    x-data="{ 
+        showSubscribe: false, 
+        showSuccess: true,
+    }"
 >
     <nav class="container flex justify-between pt-5 mx-auto text-indigo-200">
         <a class="text-4xl font-bold" href="/">
@@ -56,6 +59,20 @@
                 >Get In
                 </x-button>
             </form>
+        </div>
+    </div>
+    <div 
+        class="fixed top-0 flex items-center w-full h-full bg-gray-900 bg-opacity-60"
+        x-show="showSuccess"
+        x-on:click.self="showSubscribe = false"
+        x-on:keydown.escape.window="showSubscribe = false"
+    >
+        <div class="p-8 m-auto bg-green-900 shadow-2xl rounded-xl">
+            <p class="font-extrabold text-center text-white text-9xl animate-pulse">
+                &check;
+            </p>
+            <p class="mt-16 text-5xl font-extrabold text-center text-white">Great</p>
+            <p class="text-3xl text-center text-white">See you in your inbox</p>
         </div>
     </div>
 </div>

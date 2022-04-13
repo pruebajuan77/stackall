@@ -67,6 +67,10 @@
             &check;
         </p>
         <p class="mt-16 text-5xl font-extrabold text-center text-white">Great</p>
-        <p class="text-3xl text-center text-white">See you in your inbox</p>
+        @if (request()->has('verified') && request()->verified == 1 )
+            <p class="text-3xl text-center text-white">Thanks for confirmation</p> 
+        @else
+            <p class="text-3xl text-center text-white">See you in your inbox</p>
+        @endif
     </x-modal>
 </div>
